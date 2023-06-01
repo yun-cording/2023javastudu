@@ -42,6 +42,6 @@ public class Ex02_Component extends JFrame {
 	}
 
 	public static void main(String[] args) {
-
+		new Ex02_Component();
 	}
 }
