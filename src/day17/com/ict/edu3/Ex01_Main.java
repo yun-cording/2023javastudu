@@ -18,10 +18,10 @@ public class Ex01_Main extends JFrame{
 		JScrollPane jsp = new JScrollPane(jTable);
 		JPanel jp = new JPanel();
 		
-//		jp.add(jsp);		
-//		add(jp);
+		jp.add(jsp);
+		add(jp);
 		
-		add(jsp);
+//		add(jsp);
 		
 		Dimension ds = Toolkit.getDefaultToolkit().getScreenSize();
 		setBounds(ds.width/2-250,ds.height/2-250,500,500);
