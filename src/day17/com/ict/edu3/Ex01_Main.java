@@ -21,7 +21,6 @@ public class Ex01_Main extends JFrame{
 		jp.add(jsp);
 		add(jp);
 		
-//		add(jsp);
 		
 		Dimension ds = Toolkit.getDefaultToolkit().getScreenSize();
 		setBounds(ds.width/2-250,ds.height/2-250,500,500);

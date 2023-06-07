@@ -36,6 +36,7 @@ public class Ex03PreparedStatment_insert {
 			pstm.setString(3, address);
 			pstm.setString(4, phone);
 			result = pstm.executeUpdate();
+			
 			if(result>0) { // 인서트가 실행됐다면 확인차 
 			sql = "select * from customer";
 			pstm = conn.prepareStatement(sql);

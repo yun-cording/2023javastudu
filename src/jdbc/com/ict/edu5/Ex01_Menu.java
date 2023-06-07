@@ -1,13 +1,15 @@
-package day23.com.ict.edu;
+package jdbc.com.ict.edu5;
 
 import java.awt.FileDialog;
 import java.awt.Font;
 import java.awt.ScrollPane;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
+import java.io.FileWriter;
 
 import javax.swing.JFrame;
 import javax.swing.JMenu;
@@ -23,14 +25,14 @@ import javax.swing.ScrollPaneConstants;
 // 메뉴바에 메뉴를 붙인다. 메뉴에 메뉴아이템을 붙인다.
 // 메뉴아이템 < 메뉴< 메뉴바 < 프레임
 // 메뉴바는 프레임에 붙인다. (setJMenuBar)
-public class Ex06Menu extends JFrame {
+public class Ex01_Menu extends JFrame {
 	JTextArea jta;
 	JScrollPane jsp;
 	JMenuBar jmb;
 	JMenu m_file, m_from, font_form, m_help;
 	JMenuItem i_newFile, i_openFile, i_saveFile, i_exitFile, i_Item1, i_Item2, i_Item3, i_help, i_info;
 
-	public Ex06Menu() {
+	public Ex01_Menu() {
 		super("간단메모장");
 
 		jta = new JTextArea();
@@ -170,21 +172,23 @@ public class Ex06Menu extends JFrame {
 					fd.setVisible(true);
 					String msg = fd.getDirectory()+fd.getFile();
 					// 파일에 내용이 있으면 저장하는 내용 실행
-					File file = new File(msg);
-					FileOutputStream fos = null;
-					try {
-						fos = new FileOutputStream(file , true);
-						String str = jta.getText();
-						byte[] arr = str.getBytes();
-						fos.write(arr);
-						fos.flush();
-					} catch (Exception e2) {
-						// TODO: handle exception
-					}finally {
+					if(! msg.equals("nullnull")) {
+						File file = new File(msg);
+						FileWriter fw = null;
+						BufferedWriter bw = null;
 						try {
-							fos.close();
-						} catch (Exception e3) {
-							// TODO: handle exception
+							fw = new FileWriter(file);
+							bw = new BufferedWriter(fw);
+							String str = null;
+							bw.write(str);
+							bw.flush();
+						} catch (Exception e2) {
+						}finally {
+							try {
+								bw.close();
+								fw.close();
+							} catch (Exception e3) {
+							}
 						}
 					}
 					
@@ -200,9 +204,18 @@ public class Ex06Menu extends JFrame {
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
+				
 				System.exit(0);
 				// 원래는 내용이 변경되면 저장할지를 물어보고
 				// 내용이 변경되지 않으면 그냥 종료
+				int res = JOptionPane.showOptionDialog(getParent(),"변경내용을 저장할까요?","간단 메모장", JOptionPane.YES_NO_CANCEL_OPTION, JOptionPane.PLAIN_MESSAGE, null, null , null);
+				if(res == 0) {
+					
+				}else if(res == 1) {
+					System.exit(0);
+				}else {
+					return;
+				}
 			}
 		});
 
@@ -255,6 +268,6 @@ public class Ex06Menu extends JFrame {
 	}
 
 	public static void main(String[] args) {
-		new Ex06Menu();
+		new Ex01_Menu();
 	}
 }
