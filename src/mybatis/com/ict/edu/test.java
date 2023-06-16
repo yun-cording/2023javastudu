@@ -1,4 +1,4 @@
-package homework;
+package mybatis.com.ict.edu;
 
 import java.awt.BorderLayout;
 import java.awt.Dimension;
@@ -167,14 +167,16 @@ public class test extends JFrame {
 				String custid2 = custid.getText();
 				VO vo = DAO.getOne(custid2);
 				prn2(vo);
-				
-				if(custid.getText().length()>0) {
+				if(vo == null) {
+					JOptionPane.showMessageDialog(getParent(), "없는 정보입니다");
+				}else if(custid.getText().length()>0) {
 					update.setEnabled(true);
 					select.setEnabled(false);
 					select_all.setEnabled(false);
 					insert.setEnabled(false);
 					delete.setEnabled(false);
 					clean.setEnabled(false);
+					custid.setEnabled(false);
 				update.addActionListener(new ActionListener() {		
 					
 					public void actionPerformed(ActionEvent e) {
@@ -200,6 +202,8 @@ public class test extends JFrame {
 						insert.setEnabled(true);
 						delete.setEnabled(true);
 						clean.setEnabled(true);
+						update.setEnabled(false);
+						custid.setEnabled(true);
 					}
 				});
 				}

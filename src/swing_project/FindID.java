@@ -13,6 +13,7 @@ import javax.swing.JTextField;
 import javax.swing.JLabel;
 import java.awt.Color;
 import java.awt.Font;
+import java.awt.Canvas;
 
 public class FindID {
 
@@ -62,15 +63,16 @@ public class FindID {
 		
 		JButton btnNewButton = new JButton("확인");
 		btnNewButton.setFont(new Font("굴림", Font.BOLD, 15));
-		btnNewButton.setForeground(new Color(0, 0, 0));
-		btnNewButton.setBackground(new Color(255, 128, 192));
+		btnNewButton.setForeground(new Color(0, 128, 255));
+		btnNewButton.setBackground(new Color(255, 240, 245));
 		
 		btnNewButton.setBounds(88, 297, 93, 23);
 		frame.getContentPane().add(btnNewButton);
 		
 		JButton btnNewButton_1 = new JButton("취소");
+		btnNewButton_1.setForeground(new Color(0, 128, 255));
 		btnNewButton_1.setFont(new Font("굴림", Font.BOLD, 15));
-		btnNewButton_1.setBackground(new Color(255, 128, 192));
+		btnNewButton_1.setBackground(new Color(255, 240, 245));
 		btnNewButton_1.setBounds(232, 297, 93, 23);
 		frame.getContentPane().add(btnNewButton_1);
 		
@@ -101,5 +103,13 @@ public class FindID {
 		lblNewLabel_2.setFont(new Font("Comic Sans MS", Font.PLAIN, 28));
 		lblNewLabel_2.setBounds(112, 49, 188, 65);
 		frame.getContentPane().add(lblNewLabel_2);
+		
+		JPanel panel_1 = new JPanel();
+		panel_1.setBackground(new Color(255, 240, 245));
+		panel_1.setBounds(0, 330, 438, 183);
+		frame.getContentPane().add(panel_1);
+		
+		Canvas canvas = new Canvas();
+		panel_1.add(canvas);
 	}
 }
