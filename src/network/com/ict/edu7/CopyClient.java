@@ -78,6 +78,7 @@ public class CopyClient extends Thread {
 						server.refresh();
 						break;
 					case 5:		//5:방나가기
+						// 대기실
 						outRoom();
 						// 대기실에는 인원 추가
 						server.refresh();
@@ -95,7 +96,6 @@ public class CopyClient extends Thread {
 						client.out.writeObject(p);
 						out.flush();
 						break;
-					
 					
 					}					
 				}
